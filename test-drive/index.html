@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TestDrive</title>
+    <meta name="description" content="">
+
+    <!-- Add favicon.ico and stylesheets here -->
+  </head>
+  <body>
+    <!-- Add your site or application content here -->
+    <h1>TestDrive</h1>
+    <button id="ping">Ping Kinvey</button>
+
+    <!-- Replace App Key and App Secret with your own -->
+    <script src="//da189i1jfloii.cloudfront.net/js/kinvey-html5-1.1.1.min.js"></script>
+    <script>
+      // Initialize Kinvey for use in your app.
+      Kinvey.init({
+        appKey    : 'kid_VVFlkze-ME',
+        appSecret : '00efd3e9d632496a9a0ccea6262b1853'
+      });
+    </script>
+    <script src="scripts/ping.js"></script>
+
+    <!-- Add JavaScript libraries and resources here -->
+  </body>
+</html>
