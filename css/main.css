@@ -99,11 +99,11 @@ textarea {
 
 div.board {
     float: left;
+    overflow-x: auto;
 }
 
 div.res-board {
     width: 20%;
-    overflow-x: auto;
 }
 
 div.date-board {
@@ -138,6 +138,14 @@ table.res-board thead > tr > th {
     height: 58px;
 }
 
+table.date-board thead > tr > th {
+    height: 38px;
+}
+
+table.date-board thead > tr.days > th {
+    height: 20px;
+}
+
 table.date-board tr > td {
     text-align: center;
 }
@@ -152,29 +160,66 @@ table.board div.marker {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 450px) {
-    div.res-board {
-        width: 30%;
-    }
+.res-board-nav {
+    width: 100%;
+}
 
-    div.date-board {
-        width: 70%;
-    }
+.res-board-nav .filler{
+    width: 20%;
+    float: left;
+}
+
+.res-board-nav .month-nav {
+    width: 80%;
+    float:left;
+}
+
+.res-board-nav .month-nav .month {
+    width: 90%;
+    float: left;
+    text-align: center;
+}
+
+.res-board-nav .month-nav .nav-btn {
+    width: 5%;
+    float: left;
+}
+
+.res-board-nav .month-nav .nav-btn.prev {
+    text-align: left;
+}
+
+.res-board-nav .month-nav .nav-btn.next {
+    text-align: right;
 }
 
 @media only screen and (max-width: 767px) {
+    div.res-board, .res-board-nav .filler {
+        width: 30%;
+    }
 
-    table.res-board thead > tr > th {
-        height: 57px;
+    div.date-board, .res-board-nav .month-nav {
+        width: 70%;
     }
 }
-
-
 
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+/*
+* Icons
+*/
+
+.icon.icon-arrow-left:before {
+    /*content: "\e601";*/
+    content: "<";
+}
+
+.icon.icon-arrow-right:before {
+    /*content: "\e604";*/
+    content: ">";
+}
 
 /*
  * Image replacement

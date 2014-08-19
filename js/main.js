@@ -1,5 +1,10 @@
 $(function(){
 
+    //init();
+
+});
+
+function init(){
     // Initialize Kinvey for use in app.
     var promise = Kinvey.init({
         appKey    : 'kid_VVFlkze-ME',
@@ -32,7 +37,7 @@ $(function(){
         alert('Failed to initialize Datasource : ' + error.description);
     });
 
-});
+}
 
 function loadResourcingBoardLayout(){
     var promise = Kinvey.DataStore.find('resources', null, {
