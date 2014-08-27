@@ -67,6 +67,12 @@ function loadResourcingBoardLayout(){
 
 }
 
+function setupBoard(){
+    jQuery('.month-nav > .nav-btn.prev').click(function(){
+
+    });
+}
+
 function renderBoardDates(year, month){
     var dateRangeTR = jQuery('.date-board .date-range').empty();
     var daysTR = jQuery('.date-board .days').empty();
