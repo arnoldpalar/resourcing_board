@@ -221,6 +221,10 @@ table.board div.marker {
     content: ">";
 }
 
+.btn, .nav-btn {
+    cursor: pointer;
+}
+
 /*
  * Image replacement
  */
