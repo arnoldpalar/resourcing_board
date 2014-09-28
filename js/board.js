@@ -1,54 +1,23 @@
 /**
  * Created by arnoldpalar.sg on 20/8/2014.
  */
-$(function(){
 
-    //init();
+app.controller('BoardController', function($scope, $rootScope) {
 
-    renderBoardDates(2014, 7);
+    $scope.init = function (){
+
+        renderBoardDates(2014, 8);
+    };
+
+    $scope.init();
+
 
 });
-
-function init(){
-    // Initialize Kinvey for use in app.
-    var promise = Kinvey.init({
-        appKey    : 'kid_VVFlkze-ME',
-        appSecret : '00efd3e9d632496a9a0ccea6262b1853'
-    });
-
-    promise.then(function(activeUser){
-
-        if (activeUser) {
-            loadResourcingBoardLayout();
-        }else{
-            var username = prompt('username'); //admin
-            var password = prompt('password'); //Admin@123
-            var promise = Kinvey.User.login({
-                username: username,
-                password: password
-            }, {
-                success: function (response) {
-                    alert("Welcome " + response.first_name);
-
-                    loadResourcingBoardLayout();
-                },
-                error: function(error){
-                    alert(error.description);
-                }
-            });
-        }
-
-    }, function(error){
-        alert('Failed to initialize Datasource : ' + error.description);
-    });
-
-}
 
 function loadResourcingBoardLayout(){
     var promise = Kinvey.DataStore.find('resources', null, {
         success: function(response) {
-            alert('resources response');
-            alert(JSON.stringify(response));
+            console.log(JSON.stringify(response));
 
             Kinvey.User.logout({
                 success: function() {
@@ -57,12 +26,12 @@ function loadResourcingBoardLayout(){
             });
         },
         error: function(error){
-            alert(error.description);
+            console.log('Error in retrieving resources list' + error.description);
         }
     }).then(function(request){
         //TODO
     }, function(error) {
-        alert(error.description);
+        console.log('Error in retrieving resources list' + error.description);
     });
 
 }
@@ -111,18 +80,4 @@ function renderBoardDates(year, month){
             }
         }
     }
-}
-
-function getDayStr(dayInt){
-    switch(dayInt){
-        case 0: return 'Sun'; break;
-        case 1: return 'Mon'; break;
-        case 2: return 'Tue'; break;
-        case 3: return 'Wed'; break;
-        case 4: return 'Thu'; break;
-        case 5: return 'Fri'; break;
-        case 6: return 'Sat'; break;
-    }
-
-    return '';
 }
